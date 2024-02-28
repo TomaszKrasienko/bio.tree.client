@@ -1,0 +1,41 @@
+<app-alert></app-alert>
+<div class="container">
+  <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <form [formGroup]="signInForm" (submit)="submit()">
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email">
+          <mat-error *ngIf="getEmailErrorMessage().length !== 0">
+            {{getEmailErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password">
+          <mat-error *ngIf="getPasswordErrorMessage().length !== 0">
+            {{getPasswordErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row confirm-button">
+        <button
+          type="submit"
+          mat-mini-fab
+          color="basic"
+          [disabled]="!isAllFormsValid()">
+          <mat-icon>done</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Bio.Tree</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button aria-label="Account" [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="users/sign-in">Sign in</button>
+    <button mat-menu-item routerLink="users/sign-up">Sign up</button>
+  </mat-menu>
+</mat-toolbar>
