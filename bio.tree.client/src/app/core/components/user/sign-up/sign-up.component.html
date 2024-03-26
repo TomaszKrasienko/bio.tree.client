@@ -1,1 +1,93 @@
-<p>sign-up works!</p>
+<app-alert></app-alert>
+<div class="container">
+  <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <form [formGroup]="signUpForm" (submit)="submit()">
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email">
+          <mat-error *ngIf="getEmailErrorMessage().length !== 0">
+            {{getEmailErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>First name</mat-label>
+          <input
+            matInput
+            placeholder="First name"
+            formControlName="firstName">
+          <mat-error *ngIf="getRequiredTextInputMessage('firstName').length !== 0">
+            {{getRequiredTextInputMessage('firstName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Last name</mat-label>
+          <input
+            matInput
+            placeholder="Last name"
+            formControlName="lastName">
+          <mat-error *ngIf="getRequiredTextInputMessage('lastName').length !== 0">
+            {{getRequiredTextInputMessage('lastName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Nickname</mat-label>
+          <input
+            matInput
+            placeholder="Nickname"
+            formControlName="nickname">
+          <mat-error *ngIf="getRequiredTextInputMessage('nickname').length !== 0">
+            {{getRequiredTextInputMessage('nickname')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password">
+          <mat-error *ngIf="getRequiredTextInputMessage('password').length !== 0">
+            {{getRequiredTextInputMessage('password')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="form-field" style="width: 350px">
+          <mat-label>Confirm password</mat-label>
+          <input
+            matInput
+            placeholder="Confirm password"
+            type="password"
+            formControlName="passwordConfirmation">
+          <mat-error *ngIf="getRequiredTextInputMessage('passwordConfirmation').length !== 0">
+            {{getRequiredTextInputMessage('passwordConfirmation')}}
+          </mat-error>
+          <mat-error *ngIf="getPasswordConfirmationMessage().length !== 0">
+            {{getPasswordConfirmationMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row confirm-button">
+        <button
+          type="submit"
+          mat-mini-fab
+          color="basic"
+          [disabled]="!isAllFormsValid()">
+          <mat-icon>done</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

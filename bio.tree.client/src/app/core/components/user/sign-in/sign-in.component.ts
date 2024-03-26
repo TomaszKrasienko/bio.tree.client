@@ -79,7 +79,10 @@ export class SignInComponent {
     this.authService.signIn(this.signInForm.value as SignInModel)
       .subscribe((result: TokenModel) => {
         this.authService.saveToken(result.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/'])
+          .then(() => {
+            location.reload();
+          });
       }, ((error) => {
         this.alertProvider?.showAlertWithStrongText("There was an error!", error.error.message);
       }));
